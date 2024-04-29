@@ -28,6 +28,46 @@ public class TemperatureViewModel : INotifyPropertyChanged
         set { _kelvin = value; OnPropertyChanged(nameof(Kelvin)); }
     }
 
+    // TODO: Use ObservableCollection?
+    private List<string> _comboBox1Options = ["All Values", "ABC", "DEF"];
+    public List<string> ComboBox1Options
+    {
+        get => _comboBox1Options;
+        set { _comboBox1Options = value; OnPropertyChanged(nameof(ComboBox1Options)); }
+    }
+
+    private string _selectedOption1 = "All Values";
+
+    public string SelectedOption1
+    {
+        get => _selectedOption1;
+        set
+        {
+            _selectedOption1 = value;
+            Console.WriteLine(value);
+
+            ComboBox2Options = value switch
+            {
+                "All Values" => ["1", "2", "3", "4", "5", "6"],
+                "ABC" => ["1", "2", "3"],
+                "DEF" => ["4", "5", "6"],
+                _ => ComboBox2Options
+            };
+
+            OnPropertyChanged(nameof(SelectedOption1));
+        }
+    }
+
+    // TODO: Use ObservableCollection?
+    private List<string> _comboBox2Options = ["1", "2", "3", "4", "5", "6"];
+    public List<string> ComboBox2Options
+    {
+        get => _comboBox2Options;
+        set { _comboBox2Options = value; OnPropertyChanged(nameof(ComboBox2Options)); }
+    }
+
+    public string SelectedOption2 { get; set; } = "1";
+
     public ICommand ConvertCommand { get; private set; }
     
     public event PropertyChangedEventHandler? PropertyChanged;

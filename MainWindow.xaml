@@ -1,4 +1,4 @@
-﻿<Window x:Class="TemperatureConverter.MainWindow"
+﻿<Window x:Class="MVVM.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:viewModels="clr-namespace:MVVM"
@@ -31,5 +31,19 @@
             Content="Convert" HorizontalAlignment="Left" Margin="10,130,0,0" VerticalAlignment="Top" Width="75"
             Command="{Binding ConvertCommand}"
         />
+
+        <StackPanel Margin="10, 200, 10, 0">
+            <ComboBox
+                ItemsSource="{Binding Path=ComboBox1Options}"
+                SelectedItem="{Binding SelectedOption1}"
+            />
+        </StackPanel>
+
+        <StackPanel Margin="10, 230, 10, 0">
+            <ComboBox
+                ItemsSource="{Binding Path=ComboBox2Options}"
+                SelectedItem="{Binding SelectedOption2}"
+            />
+        </StackPanel>
     </Grid>
 </Window>
