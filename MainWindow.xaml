@@ -1,0 +1,35 @@
+﻿<Window x:Class="TemperatureConverter.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:viewModels="clr-namespace:MVVM"
+    Title="Temperature Converter" Height="350" Width="525"
+>
+    <Window.DataContext>
+        <viewModels:TemperatureViewModel/>
+    </Window.DataContext>
+
+    <Grid>
+        <Label Content="Celsius:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <TextBox
+            HorizontalAlignment="Left" Height="23" Margin="90,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"
+            Text="{Binding Celsius, UpdateSourceTrigger=PropertyChanged}"
+        />
+ 
+        <Label Content="Fahrenheit:" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top"/>
+        <TextBox
+            HorizontalAlignment="Left" Height="23" Margin="90,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"
+            Text="{Binding Fahrenheit, UpdateSourceTrigger=PropertyChanged}"
+        />
+ 
+        <Label Content="Kelvin:" HorizontalAlignment="Left" Margin="10,90,0,0" VerticalAlignment="Top"/>
+        <TextBox
+            HorizontalAlignment="Left" Height="23" Margin="90,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"
+            Text="{Binding Path=Kelvin, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+        />
+ 
+        <Button
+            Content="Convert" HorizontalAlignment="Left" Margin="10,130,0,0" VerticalAlignment="Top" Width="75"
+            Command="{Binding ConvertCommand}"
+        />
+    </Grid>
+</Window>
