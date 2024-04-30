@@ -32,18 +32,22 @@
             Command="{Binding ConvertCommand}"
         />
 
-        <StackPanel Margin="10, 200, 10, 0">
-            <ComboBox
-                ItemsSource="{Binding Path=ComboBox1Options}"
-                SelectedItem="{Binding SelectedOption1}"
-            />
-        </StackPanel>
+        <StackPanel Orientation="Vertical" Margin="10, 200, 10, 0">
+            <TextBlock Text="Dependent Form Fields" FontSize="20"></TextBlock>
 
-        <StackPanel Margin="10, 230, 10, 0">
-            <ComboBox
-                ItemsSource="{Binding Path=ComboBox2Options}"
-                SelectedItem="{Binding SelectedOption2}"
-            />
+            <StackPanel Margin="0, 10">
+                <ComboBox
+                    ItemsSource="{Binding Path=ComboBox1Options}"
+                    SelectedItem="{Binding SelectedOption1}"
+                />
+            </StackPanel>
+
+            <StackPanel Margin="0, 10">
+                <ComboBox
+                    ItemsSource="{Binding Path=ComboBox2Options}"
+                    SelectedItem="{Binding SelectedOption2}"
+                />
+            </StackPanel>
         </StackPanel>
     </Grid>
 </Window>
