@@ -44,16 +44,7 @@ public class TemperatureViewModel : INotifyPropertyChanged
         set
         {
             _selectedOption1 = value;
-            Console.WriteLine(value);
-
-            ComboBox2Options = value switch
-            {
-                "All Values" => ["1", "2", "3", "4", "5", "6"],
-                "ABC" => ["1", "2", "3"],
-                "DEF" => ["4", "5", "6"],
-                _ => ComboBox2Options
-            };
-
+            UpdateFilterValues();
             OnPropertyChanged(nameof(SelectedOption1));
         }
     }
@@ -87,6 +78,17 @@ public class TemperatureViewModel : INotifyPropertyChanged
     {
         // Console.WriteLine($"{name} changed");
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+    }
+
+    private void UpdateFilterValues()
+    {
+        ComboBox2Options = _selectedOption1 switch
+        {
+            "All Values" => ["1", "2", "3", "4", "5", "6"],
+            "ABC" => ["1", "2", "3"],
+            "DEF" => ["4", "5", "6"],
+            _ => ComboBox2Options
+        };
     }
 }
 
